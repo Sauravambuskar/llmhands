@@ -198,4 +198,24 @@ document.addEventListener('dblclick', () => {
     } else {
         document.exitFullscreen();
     }
+});
+
+// Info button functionality
+const infoButton = document.querySelector('.info-button');
+const infoModal = document.querySelector('.info-modal');
+const infoClose = document.querySelector('.info-close');
+
+infoButton.addEventListener('click', () => {
+    infoModal.classList.add('active');
+});
+
+infoClose.addEventListener('click', () => {
+    infoModal.classList.remove('active');
+});
+
+// Close modal when clicking outside of it
+infoModal.addEventListener('click', (e) => {
+    if (e.target === infoModal) {
+        infoModal.classList.remove('active');
+    }
 }); 
