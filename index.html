@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Tracking App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-black m-0 p-0 h-screen w-screen overflow-hidden flex items-center justify-center">
+    <div class="relative w-full h-full">
+        <video class="input-video absolute top-0 left-0 w-full h-full object-cover" autoplay></video>
+        <canvas class="output-canvas absolute top-0 left-0 w-full h-full"></canvas>
+        
+        <!-- HUD Elements -->
+        <div class="absolute top-0 left-0 w-full p-4 flex justify-between items-center z-10">
+            <div class="flex items-center">
+                <div class="w-6 h-6 mr-2 border-2 border-cyan-400 rounded-full flex items-center justify-center">
+                    <i class="fas fa-hand-paper text-cyan-400 text-xs"></i>
+                </div>
+                <div class="text-cyan-400 text-xl font-bold tracking-wider">HAND TRACKING</div>
+            </div>
+            <div class="stats bg-black/50 backdrop-blur-sm p-2 rounded-lg border border-cyan-400/30">
+                <div class="text-green-400 text-sm" id="fps">FPS: 0</div>
+                <div class="text-cyan-400 text-sm" id="hands-detected">Hands: 0</div>
+            </div>
+        </div>
+        
+        <!-- Bottom HUD -->
+        <div class="absolute bottom-0 left-0 w-full p-4 flex justify-between items-center z-10">
+            <div class="text-xs text-cyan-400/70">
+                <div>Double-click for fullscreen</div>
+                <div class="mt-1">MediaPipe Hands v1.0</div>
+            </div>
+            <div class="text-xs text-cyan-400/70 text-right">
+                <div id="resolution">1280x720</div>
+                <div class="mt-1" id="timestamp"></div>
+            </div>
+        </div>
+        
+        <!-- Corner decorations -->
+        <div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-cyan-400/50"></div>
+        <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-cyan-400/50"></div>
+        <div class="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-cyan-400/50"></div>
+        <div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-cyan-400/50"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 

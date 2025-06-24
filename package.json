@@ -1,0 +1,23 @@
+{
+  "name": "hand-tracking-app",
+  "version": "1.0.0",
+  "description": "Real-time hand tracking web application using MediaPipe",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "hand-tracking",
+    "mediapipe",
+    "computer-vision",
+    "webcam",
+    "real-time"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "engines": {
+    "node": ">=12.0.0"
+  }
+} 
